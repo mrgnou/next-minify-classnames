@@ -1,0 +1,25 @@
+{
+  "name": "next-minify-classnames",
+  "version": "0.0.1",
+  "description": "Minify CSS Modules class names",
+  "repository": "https://github.com/stldo/next-minify-classnames",
+  "keywords": [
+    "next.js",
+    "nextjs",
+    "next",
+    "plugin",
+    "next-plugin",
+    "minify",
+    "classnames",
+    "css-modules"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "incstr": "^1.2.3"
+  },
+  "peerDependencies": {
+    "next": "^12.0.0"
+  },
+  "author": "stldo (https://github.com/stldo)",
+  "license": "MIT"
+}
