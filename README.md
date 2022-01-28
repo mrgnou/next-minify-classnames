@@ -10,7 +10,7 @@ npm install next-minify-classnames
 
 ## Usage
 
-### `next-with-plugins`
+### With [next-with-plugins][3]
 
 ```js
 /* next.config.js */
@@ -141,4 +141,5 @@ With `next-minify-classnames` disabled, the following CSS would be generated:
 
 [1]: https://img.shields.io/npm/v/next-minify-classnames
 [2]: https://www.npmjs.com/package/next-minify-classnames
+[3]: https://github.com/stldo/next-with-plugins
 [license]: ./LICENSE
