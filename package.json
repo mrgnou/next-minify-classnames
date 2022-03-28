@@ -1,6 +1,6 @@
 {
   "name": "next-minify-classnames",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Minify CSS Modules class names",
   "repository": "https://github.com/stldo/next-minify-classnames",
   "keywords": [
