@@ -2,47 +2,49 @@ const getMinifiedIdent = require('./get-minified-ident')
 
 const LETTER = /[A-Za-z]/
 
-module.exports = (config, {
-dictionary = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
-enable = process.env.NODE_ENV === 'production',
-prefix = '',
-suffix = ''
-}) => {
-if (!enable) {
-	return config
-} else if (!LETTER.test(dictionary)) {
-	throw new Error('"dictionary" option must have at least one letter')
-}
+module.exports = config => {
+	const {
+		dictionary = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
+		enable = process.env.NODE_ENV === 'production',
+		prefix = '',
+		suffix = ''
+	} = config.minifyClassNames || {}
 
-return {
-	...config,
+	if (!enable) {
+		return config
+	} else if (!LETTER.test(dictionary)) {
+		throw new Error('"dictionary" option must have at least one letter')
+	}
 
-	webpack: (webpackConfig, ...rest) => {
-	for (const { oneOf } of webpackConfig.module.rules) {
-		if (!oneOf?.length) continue
+	return {
+		...config,
 
-		for (const { use } of oneOf) {
-			if (!use || !(Symbol.iterator in Object(use))) {
-				continue
-			}
+		webpack: (webpackConfig, ...rest) => {
+		for (const { oneOf } of webpackConfig.module.rules) {
+			if (!oneOf?.length) continue
 
-			for (const { loader, options } of use) {
-				if (!loader?.includes('/css-loader/') || !options?.modules) {
-				continue
+			for (const { use } of oneOf) {
+				if (!use || !(Symbol.iterator in Object(use))) {
+					continue
 				}
 
-				options.modules.getLocalIdent = (context, _, localName) => {
-				const identParts = { path: context.resourcePath, localName }
-				const minifiedIdent = getMinifiedIdent(identParts, dictionary)
-				return `${prefix}${minifiedIdent}${suffix}`
+				for (const { loader, options } of use) {
+					if (!loader?.includes('/css-loader/') || !options?.modules) {
+					continue
+					}
+
+					options.modules.getLocalIdent = (context, _, localName) => {
+					const identParts = { path: context.resourcePath, localName }
+					const minifiedIdent = getMinifiedIdent(identParts, dictionary)
+					return `${prefix}${minifiedIdent}${suffix}`
+					}
 				}
 			}
 		}
-	}
 
-	return typeof config.webpack === 'function'
-		? config.webpack(webpackConfig, ...rest)
-		: webpackConfig
+		return typeof config.webpack === 'function'
+			? config.webpack(webpackConfig, ...rest)
+			: webpackConfig
+		}
 	}
-}
-}
+	}
