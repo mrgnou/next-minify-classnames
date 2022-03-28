@@ -37,9 +37,29 @@ module.exports = withPlugins({
 const withMinifyClassNames = require('next-minify-classnames')
 
 module.exports = withMinifyClassNames({
+	/* Next.js config options here */
+	minifyClassNames: {
+		/* Plugin options here */
+	},
+})
+```
+
+### With next-compose-plugins
+
+```js
+/* next.config.js */
+
+const withMinifyClassNames = require('next-minify-classnames')
+
+module.exports = withPlugins([
+	[withMinifyClassNames, {
+		minifyClassNames: {
+			/* Plugin options here */
+		},
+	}],
+],
+{
   /* Next.js config options here */
-}, {
-  /* next-minify-classnames options here */
 })
 ```
 
@@ -139,7 +159,7 @@ With `next-minify-classnames` disabled, the following CSS would be generated:
 
 [The MIT License][license]
 
-[1]: https://img.shields.io/npm/v/next-minify-classnames
-[2]: https://www.npmjs.com/package/next-minify-classnames
-[3]: https://github.com/stldo/next-with-plugins
+[1]: https://img.shields.io/npm/v/@numbered/next-minify-classnames
+[2]: https://www.npmjs.com/package/@numbered/next-minify-classnames
+[3]: https://github.com/mrgnou/next-minify-classnames
 [license]: ./LICENSE

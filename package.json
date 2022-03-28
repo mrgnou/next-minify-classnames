@@ -1,36 +1,39 @@
 {
-  "name": "@numbered/next-minify-classnames",
-  "version": "0.0.2",
-  "description": "Minify CSS Modules class names",
-  "repository": "https://github.com/mrgnou/next-minify-classnames",
-  "keywords": [
-    "next.js",
-    "nextjs",
-    "next",
-    "plugin",
-    "next-plugin",
-    "minify",
-    "classnames",
-    "css-modules"
-  ],
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint --cache --ext js ./",
-    "postversion": "git push && git push --tags"
-  },
-  "dependencies": {
-    "incstr": "^1.2.3"
-  },
-  "devDependencies": {
-    "eslint": "^8.7.0",
-    "eslint-config-standard": "^17.0.0-0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0"
-  },
-  "peerDependencies": {
-    "next": "^12.0.0"
-  },
-  "author": "stldo (https://github.com/stldo)",
-  "license": "MIT"
+	"name": "@numbered/next-minify-classnames",
+	"version": "0.0.3",
+	"description": "Minify CSS Modules class names",
+	"repository": "https://github.com/mrgnou/next-minify-classnames",
+	"keywords": [
+		"next.js",
+		"nextjs",
+		"next",
+		"plugin",
+		"next-plugin",
+		"minify",
+		"classnames",
+		"css-modules"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint --cache --ext js ./",
+		"postversion": "git push && git push --tags"
+	},
+	"dependencies": {
+		"incstr": "^1.2.3"
+	},
+	"devDependencies": {
+		"eslint": "^8.7.0",
+		"eslint-config-standard": "^17.0.0-0",
+		"eslint-plugin-import": "^2.25.4",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^6.0.0"
+	},
+	"peerDependencies": {
+		"next": "^12.0.0"
+	},
+	"author": "stldo (https://github.com/stldo)",
+	"license": "MIT"
 }
