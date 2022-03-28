@@ -1,8 +1,8 @@
 {
-  "name": "next-minify-classnames",
+  "name": "@numbered/next-minify-classnames",
   "version": "0.0.2",
   "description": "Minify CSS Modules class names",
-  "repository": "https://github.com/stldo/next-minify-classnames",
+  "repository": "https://github.com/mrgnou/next-minify-classnames",
   "keywords": [
     "next.js",
     "nextjs",
